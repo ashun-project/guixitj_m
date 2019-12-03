@@ -1,0 +1,88 @@
+﻿doctype html 5
+html
+    head
+        meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+        title 贵溪土鸡 - 土鸡
+        meta(name="keywords", content="贵溪土鸡,流口土鸡,鹰潭土鸡,农家土鸡,贵溪散养土鸡,贵溪土鸡蛋")
+        meta(name="description", content="鹰潭贵溪土鸡(www.guixitj.com)长年出售农村散养土鸡，保证土生土长无饲料，肉质正宗。")
+        link(rel="canonical", href="#{domain.pc}/")
+        meta(name="applicable-device", content="mobile")
+        meta(http-equiv="Cache-Control", content="no-transform")
+        meta(http-equiv="Cache-Control", content="no-siteapp")
+        meta(name="MobileOptimized", content="width")
+        meta(name="HandheldFriendly", content="true")
+        meta(name="apple-mobile-web-app-capable", content="yes")
+        meta(name="apple-mobile-web-app-status-bar-style", content="black")
+        meta(name="apple-mobile-web-app-title", content="贵溪土鸡")
+        link(rel="stylesheet", type="text/css", href="/css/style_m.css?#{new Date().getTime()}")
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", type="text/css", href="/css/swiper.min.css")
+        style.
+            .swiper-container{
+                height: 160px;
+            }
+    body
+        //- <script src="./slid-es5.js"></script>
+        .top-wrap
+            h1
+                a(href="#{domain.m}/", title="贵溪土鸡") 贵溪土鸡出售网
+        div(class="swiper-container")
+            div.swiper-wrapper
+                .swiper-slide
+                    img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/5.jpg", alt="")
+                .swiper-slide
+                    img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/8.jpg", alt="")
+                .swiper-slide
+                    img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/1.jpg", alt="")
+            div.swiper-pagination
+        .banner
+            img(src="", alt="")
+        .lanmu
+            div
+                i
+                span 最近出售
+            div
+                i
+                span 关于我们
+            div
+                i
+                span 常见问题
+        .trade-list
+            ul
+                each item in trade
+                    li
+                        .diagram
+                            a(href="#{domain.m + '/detail/' + item.id}" target="_blank")
+                                img(src="#{domain.static + '/img/' + item.type + '/' + item.logo}", alt="#{item.title}")
+                        .cont
+                            p 
+                                a(href="#{domain.m + '/detail/' + item.id}", target="_blank") #{item.title}
+                            p.biaoshi 出售：#{item.amount}&nbsp;(只)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日期：#{item.create_time}
+                            p.essay #{item.depict}
+        .order
+            p 为保证质量我们散养的数量并不多，想要的朋友请尽快下单
+            a(href="") 立即购买
+        .footer
+            ul
+                li
+                    i
+                    span 首页
+                li
+                    i
+                    span 新闻
+                li
+                    i
+                    span 出单
+                li
+                    i
+                    span 其他
+        //- include ../include/footer.jade
+        script(src="/js/swiper.min.js")
+        script.
+            var mySwiper = new Swiper('.swiper-container',{
+                autoplay: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                }
+            })

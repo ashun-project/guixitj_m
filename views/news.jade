@@ -1,0 +1,58 @@
+doctype html 5
+html
+    head
+        meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+        title 站内土鸡新闻#{pageTxt} - 贵溪土鸡
+        meta(name="keywords", content="贵溪土鸡新闻,贵溪土鸡蛋新闻")
+        meta(name="description", content="贵溪土鸡新闻主要发布本站农家生活状况，散养鸡的生活环境，最新农家消息。")
+        link(rel="canonical", href="#{domain.pc + pageUrl}")
+        //- link(rel="alternate", media="only screen and(max-width: 640px)", href="#{domain.m + pageUrl}")
+        //- meta(name="mobile-agent", content="format=html5;url=#{domain.m + pageUrl}")
+        meta(name="applicable-device", content="pc")
+        meta(http-equiv="Cache-Control", content="no-transform")
+        meta(http-equiv="Cache-Control", content="no-siteapp")
+        meta(name="renderer", content="webkit")
+        link(rel="stylesheet", type="text/css", href="#{domain.static}/css/style.css?#{new Date().getTime()}")
+        link(rel="shortcut icon", href="#{domain.static}/img/favicon.ico", type="image/x-icon")
+    body
+        include ../include/header.jade
+        p.curr-positon.width-1100
+            span 当前位置：
+            a(href="#{domain.pc}/") 首页
+            span &nbsp;&gt;&nbsp;站内新闻
+        div.width-1100.news-cont
+            .life-tuijian
+                div.column-title
+                    span 我们的生活
+                    a(href="#{domain.pc}/life/") 更多&gt;
+                ul
+                    each item in life
+                        li
+                            a(href="#{domain.pc + '/detail/' + item.id}", target="_blank")
+                                img(src="#{domain.static + '/img/' + item.type + '/' + item.logo}", alt="#{item.title}")
+                div.column-title
+                    span 常见问题
+                    a(href="#{domain.pc}/questions/") 详情&gt;
+                div.question
+                    p.qt
+                        i 问：
+                        span 怎么确保卖的是土鸡呢？
+                    p.an
+                        i 答：
+                        span 我们是农村的小小农民，规模并不大，养鸡只是为了补贴家用。如果你来到我们家，附近乡里乡亲的稍微打听下就知道。买过我们家的鸡都说好。
+                    p.qt
+                        i 问：
+                        span 提供送货上们服务吗？
+                    p.an.last-an
+                        i 答：
+                        span 在本市内都可以送过来的，当然路太远的话按N只起送（具体依照路程而定）。小本生意大家互相体谅。
+            .news-list
+                p.list-title 站内新闻列表
+                ul
+                    each item in news
+                        li
+                            a(href="#{domain.pc + '/detail/' + item.id}", target="_blank") #{item.title}
+                            span.biaoshi 编辑：阿顺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日期：#{item.create_time}
+                .page !{page}
+        include ../include/footer.jade
+            
