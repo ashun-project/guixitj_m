@@ -18,26 +18,21 @@ html
         link(rel="stylesheet", type="text/css", href="/css/style_m.css?#{new Date().getTime()}")
         link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
         link(rel="stylesheet", type="text/css", href="/css/swiper.min.css")
-        style.
-            .swiper-container{
-                height: 160px;
-            }
     body
         //- <script src="./slid-es5.js"></script>
         .top-wrap
             h1
-                a(href="#{domain.m}/", title="贵溪土鸡") 贵溪土鸡出售网
-        div(class="swiper-container")
-            div.swiper-wrapper
-                .swiper-slide
-                    img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/5.jpg", alt="")
-                .swiper-slide
-                    img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/8.jpg", alt="")
-                .swiper-slide
-                    img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/1.jpg", alt="")
-            div.swiper-pagination
+                a(href="#{domain.m}/", title="贵溪土鸡") 贵溪土鸡出售网（www.guixitj.com）
         .banner
-            img(src="", alt="")
+            div(class="swiper-container")
+                div.swiper-wrapper
+                    .swiper-slide
+                        img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/5.jpg", alt="")
+                    .swiper-slide
+                        img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/8.jpg", alt="")
+                    .swiper-slide
+                        img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/1.jpg", alt="")
+                div.swiper-pagination
         .lanmu
             div
                 i
@@ -49,17 +44,18 @@ html
                 i
                 span 常见问题
         .trade-list
+            p 最新订单
             ul
                 each item in trade
                     li
                         .diagram
-                            a(href="#{domain.m + '/detail/' + item.id}" target="_blank")
+                            a(href="#{domain.m + '/detail/' + item.id}")
                                 img(src="#{domain.static + '/img/' + item.type + '/' + item.logo}", alt="#{item.title}")
                         .cont
                             p 
-                                a(href="#{domain.m + '/detail/' + item.id}", target="_blank") #{item.title}
-                            p.biaoshi 出售：#{item.amount}&nbsp;(只)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日期：#{item.create_time}
+                                a(href="#{domain.m + '/detail/' + item.id}") #{item.title}
                             p.essay #{item.depict}
+                            p.biaoshi #{item.create_time}
         .order
             p 为保证质量我们散养的数量并不多，想要的朋友请尽快下单
             a(href="") 立即购买
@@ -67,16 +63,16 @@ html
             ul
                 li
                     i
-                    span 首页
+                    a(href="") 首页
                 li
                     i
-                    span 新闻
+                    a(href="") 新闻
                 li
                     i
-                    span 出单
+                    a(href="") 出单
                 li
                     i
-                    span 其他
+                    a(href="") 其他
         //- include ../include/footer.jade
         script(src="/js/swiper.min.js")
         script.
