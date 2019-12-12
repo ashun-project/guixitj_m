@@ -27,7 +27,8 @@ body{
   margin: 0 auto;
   background-size: 3000px;
   max-width: 640px;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
+  color: #323233;
 }
 
 .top-wrap h1{
@@ -40,22 +41,155 @@ body{
   color: #333;
 }
 .banner{
-  margin: 0 10px;
+  /* margin: 0 10px; */
   background: rgb(177, 44, 126);
 }
 .banner .swiper-container{
-  height: 120px;
+  height: 150px;
   overflow: hidden;
 }
-
-.lanmu{
+.module-unit{
   background: #fff;
-  margin: 10px 0;
+  margin-bottom: 10px;
+}
+.menu ul{
+  height: 40px;
+  line-height: 39px;
+}
+.menu ul li{
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+.menu ul li a{
+  color: #323233;
+  display: inline-block;
+}
+.menu ul li.active a{
+  color: #f44;
+  border-bottom: 1px solid #f44;
+}
+.m-base-info{
+  padding: 10px 0 10px 16px;
+}
+.m-base-info .goods-price{
+  margin-bottom: 8px;
+}
+.m-base-info .goods-price span{
+  display: inline-block;
+  font-size: 16px;
+  line-height: 22px;
+  margin-right: 2px;
+  font-weight: 500;
+  vertical-align: bottom;
+  color: #f44;
+}
+.m-base-info .goods-price i{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: bolder;
+  color: #f44;
+}
+.m-base-info .goods-title{
+  position: relative;
+  margin-bottom: 25px;
+}
+.m-base-info .goods-title h2{
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: left;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.m-base-info .goods-title span{
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  background: #f7f8fa;
+  padding: 4px 6px 4px 10px;
+  margin-left: 2px;
+  font-size: 12px;
+  color: #646566;
+  line-height: normal;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.m-base-info .good-guarantee-bar{
+  font-size: 12px;
+  color: #646566;
+}
+.m-base-info .good-guarantee-bar img{
+  height: 18px;
+  vertical-align: middle;
+  width: auto;
+  margin-right: 12px;
+}
+.m-bsae-server{
+  padding-left: 16px;
+  line-height: 44px;
+  font-size: 13px;
+  color: #323233;
+}
+.m-bsae-server .server{
+  color: #969799;
+  margin-right: 12px;
+}
+.tab-wrap .swiper-wrapper{
+  height: auto;
+}
+.tabs{
+  background: #fff;
+  line-height: 44px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.tabs span{
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+  font-size: 14px;
+  color: #7d7e80;
+  font-weight: 500;
+}
+.active0 .tabs .tab0{
+  color: #323233;
+}
+.active1 .tabs .tab1{
+  color: #323233;
+}
+.tabs .van-tabs__line{
+  position: absolute;
+  bottom: 1px;
+  left: 25%;
+  margin-left: -21px;
+  z-index: 1;
+  height: 3px;
+  background-color: #ee0a24;
+  border-radius: 3px;
+  width: 42px;
+  transition: all 0.1s;
+}
+.tab-wrap.active1 .van-tabs__line{
+  left: 75%;
+}
+.tab-wrap .goods-detail{
   padding: 10px;
 }
-.trade-list{
-  background: #fff;
-  padding: 10px;
+.tab-wrap .goods-detail p{
+  line-height: 26px;
+  font-size: 14px;
+  color: #333;
+}
+.tab-wrap .goods-detail .promise{
+  line-height: 20px;
+}
+.tab-wrap .trade-list {
+  padding: 16px 10px 10px;
 }
 .trade-list li{
   margin-bottom: 10px;
@@ -113,11 +247,42 @@ body{
 .order{
   margin-top: 10px;
   background: #fff;
-  padding: 10px;
+  min-height: 40px;
+  line-height: 30px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.16);
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.order span{
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 10px;
+  color: #7d7e80;
+}
+.order a{
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  height: 30px;
+  line-height: 30px;
+  width: 120px;
+  text-align: center;
+  background: #f44;
+  color: #fff;
+  border-radius: 20px;
 }
 
 
 
+.lanmu{
+  background: #fff;
+  margin: 10px 0;
+  padding: 10px;
+}
 
 .footer{
   position: fixed;

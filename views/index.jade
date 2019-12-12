@@ -22,9 +22,10 @@ html
         //- <script src="./slid-es5.js"></script>
         .top-wrap
             h1
-                a(href="#{domain.m}/", title="贵溪土鸡") 贵溪土鸡出售网（www.guixitj.com）
+                a(href="#{domain.m}/", title="贵溪土鸡") 贵溪土鸡出售网&nbsp;
+                    strong www.guixitj.com
         .banner
-            div(class="swiper-container")
+            div(class="swiper-container swiper-container-banner")
                 div.swiper-wrapper
                     .swiper-slide
                         img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/5.jpg", alt="")
@@ -33,52 +34,125 @@ html
                     .swiper-slide
                         img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/1.jpg", alt="")
                 div.swiper-pagination
-        .lanmu
-            div
-                i
-                span 最近出售
-            div
-                i
-                span 关于我们
-            div
-                i
-                span 常见问题
-        .trade-list
-            p 最新订单
+        .menu
             ul
-                each item in trade
-                    li
-                        .diagram
-                            a(href="#{domain.m + '/detail/' + item.id}")
-                                img(src="#{domain.static + '/img/' + item.type + '/' + item.logo}", alt="#{item.title}")
-                        .cont
-                            p 
-                                a(href="#{domain.m + '/detail/' + item.id}") #{item.title}
-                            p.essay #{item.depict}
-                            p.biaoshi #{item.create_time}
-        .order
-            p 为保证质量我们散养的数量并不多，想要的朋友请尽快下单
-            a(href="") 立即购买
-        .footer
-            ul
+                
                 li
-                    i
-                    a(href="") 首页
-                li
-                    i
                     a(href="") 新闻
                 li
-                    i
-                    a(href="") 出单
+                    a(href="") 购买
                 li
-                    i
-                    a(href="") 其他
+                    a(href="") 生活
+                li.active
+                    a(href="") 首页
+        .module-unit.m-base-info
+            .goods-price
+                span ¥
+                i 29.00
+            .goods-title
+                h2 产地直送-贵溪农家散养土鸡
+                span.good-share 分享
+            .good-guarantee-bar
+                img(src="https://b.yzcdn.cn/goods/yzguarantee_logo_white.png", alt="护航logo")
+                span 全程护航，请放心购买
+        .module-unit.m-bsae-server
+            span.server 服务
+            span 市内直送 · 货到付款 · 假货不收钱
+        .tab-wrap.active0
+            .tabs
+                span.tab0(onclick="switchTab(0)") 商品详情
+                span.tab1(onclick="switchTab(1)") 成交记录
+                .van-tabs__line
+            div(class="swiper-container swiper-container-tab")
+                div.swiper-wrapper
+                    .swiper-slide
+                        .goods-detail
+                            p 产品基础信息
+                            p 品名：农村散养土鸡
+                            p 产地：贵溪
+                            p 规格：4-7斤/只
+                            p 物流：直送
+                            p 品质：散养数量不多，肉质绝对正宗
+                            p 送货限制：只限贵溪市，以及市附近区域
+                            br
+                            p.promise 保证：如不是农村散养土鸡，本平台承若无条件退款，并且不会收回已卖出的土鸡
+                    .swiper-slide
+                        ul.trade-list
+                            each item in trade
+                                li
+                                    .diagram
+                                        a(href="#{domain.m + '/detail/' + item.id}")
+                                            img(src="#{domain.static + '/img/' + item.type + '/' + item.logo}", alt="#{item.title}")
+                                    .cont
+                                        p 
+                                            a(href="#{domain.m + '/detail/' + item.id}") #{item.title}
+                                        p.essay #{item.depict}
+                                        p.biaoshi #{item.create_time}
+        .order
+            span 关于我们
+            span 常见问题
+                //- | 贵溪纯散养农村土鸡
+            a(href="") 立即购买
+        
+        //- .lanmu
+        //-     div
+        //-         i
+        //-         span 最新出单
+        //-     div
+        //-         i
+        //-         span 关于我们
+        //-     div
+        //-         i
+        //-         span 常见问题
+        //- .trade-list
+        //-     p 最近购买
+        //-     ul
+        //-         each item in trade
+        //-             li
+        //-                 .diagram
+        //-                     a(href="#{domain.m + '/detail/' + item.id}")
+        //-                         img(src="#{domain.static + '/img/' + item.type + '/' + item.logo}", alt="#{item.title}")
+        //-                 .cont
+        //-                     p 
+        //-                         a(href="#{domain.m + '/detail/' + item.id}") #{item.title}
+        //-                     p.essay #{item.depict}
+        //-                     p.biaoshi #{item.create_time}
+        //- .footer
+        //-     ul
+        //-         li
+        //-             i
+        //-             a(href="") 首页
+        //-         li
+        //-             i
+        //-             a(href="") 新闻
+        //-         li
+        //-             i
+        //-             a(href="") 购买
+        //-         li
+        //-             i
+        //-             a(href="") 其他
         //- include ../include/footer.jade
         script(src="/js/swiper.min.js")
         script.
-            var mySwiper = new Swiper('.swiper-container',{
+            var mySwiper = new Swiper('.swiper-container-banner',{
                 autoplay: true,
                 pagination: {
                     el: '.swiper-pagination',
                 }
             })
+            var mySwiper2 = new Swiper('.swiper-container-tab',{
+                autoplay: false,
+                on: {
+                    slideChangeTransitionStart: function() {
+                        document.querySelector('.tab-wrap').className = 'tab-wrap active' + this.realIndex;
+                    },
+                    slideChangeTransitionEnd: function () {
+                        //- document.querySelector('.tab-wrap').className = 'tab-wrap active' + this.realIndex;
+                    }
+                }
+            })
+            function switchTab(value) {
+                mySwiper2.slideTo(value, 1000, false);
+                document.querySelector('.tab-wrap').className = 'tab-wrap active' + value;
+            }
+            

@@ -19,7 +19,7 @@ function getClientIP(req) {
 var domain = {
     pc: 'http://www.guixitj.com',
     m: '',//'http://m.guixitj.com',
-    static: 'http://localhost:8888'
+    static: 'http://103.21.143.222:8888'
 }
 // 路由拦截
 router.all('*', function (req, res, next) {
