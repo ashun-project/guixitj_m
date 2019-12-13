@@ -28,11 +28,11 @@ html
             div(class="swiper-container swiper-container-banner")
                 div.swiper-wrapper
                     .swiper-slide
-                        img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/5.jpg", alt="")
+                        img(src="/img/banner/banner1.jpg", alt="")
                     .swiper-slide
-                        img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/8.jpg", alt="")
+                        img(src="/img/banner/banner2.jpg", alt="")
                     .swiper-slide
-                        img(src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201906/jiaoben6825/images/1.jpg", alt="")
+                        img(src="/img/banner/banner3.jpg", alt="")
                 div.swiper-pagination
         .menu
             ul
@@ -53,7 +53,6 @@ html
                 h2 产地直送-贵溪农家散养土鸡
                 span.good-share 分享
             .good-guarantee-bar
-                img(src="https://b.yzcdn.cn/goods/yzguarantee_logo_white.png", alt="护航logo")
                 span 全程护航，请放心购买
         .module-unit.m-bsae-server
             span.server 服务
@@ -76,6 +75,8 @@ html
                             p 送货限制：只限贵溪市，以及市附近区域
                             br
                             p.promise 保证：如不是农村散养土鸡，本平台承若无条件退款，并且不会收回已卖出的土鸡
+                            img(src="/img/goods/goods2.jpg", alt="")
+                            img(src="/img/goods/goods1.jpg", alt="")
                     .swiper-slide
                         ul.trade-list
                             each item in trade
@@ -89,50 +90,16 @@ html
                                         p.essay #{item.depict}
                                         p.biaoshi #{item.create_time}
         .order
-            span 关于我们
-            span 常见问题
-                //- | 贵溪纯散养农村土鸡
-            a(href="") 立即购买
-        
-        //- .lanmu
-        //-     div
-        //-         i
-        //-         span 最新出单
-        //-     div
-        //-         i
-        //-         span 关于我们
-        //-     div
-        //-         i
-        //-         span 常见问题
-        //- .trade-list
-        //-     p 最近购买
-        //-     ul
-        //-         each item in trade
-        //-             li
-        //-                 .diagram
-        //-                     a(href="#{domain.m + '/detail/' + item.id}")
-        //-                         img(src="#{domain.static + '/img/' + item.type + '/' + item.logo}", alt="#{item.title}")
-        //-                 .cont
-        //-                     p 
-        //-                         a(href="#{domain.m + '/detail/' + item.id}") #{item.title}
-        //-                     p.essay #{item.depict}
-        //-                     p.biaoshi #{item.create_time}
-        //- .footer
-        //-     ul
-        //-         li
-        //-             i
-        //-             a(href="") 首页
-        //-         li
-        //-             i
-        //-             a(href="") 新闻
-        //-         li
-        //-             i
-        //-             a(href="") 购买
-        //-         li
-        //-             i
-        //-             a(href="") 其他
-        //- include ../include/footer.jade
-        script(src="/js/swiper.min.js")
+            .order-cont
+                a(href="", class="about") 关于我们
+                span |
+                a(href="", class="question") 常见问题
+                button 立即购买
+        //- script(src="/js/swiper.min.js")
+        script.
+            var banner = document.querySelector('.banner');
+            banner.style.height = 250 * banner.offsetWidth / 750 + 'px';
+        script(src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js")
         script.
             var mySwiper = new Swiper('.swiper-container-banner',{
                 autoplay: true,
