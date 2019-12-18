@@ -15,8 +15,8 @@ html
         meta(name="apple-mobile-web-app-capable", content="yes")
         meta(name="apple-mobile-web-app-status-bar-style", content="black")
         meta(name="apple-mobile-web-app-title", content="贵溪土鸡")
-        link(rel="stylesheet", type="text/css", href="/css/style_m.css?#{new Date().getTime()}")
         link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", type="text/css", href="/css/style_m.css?#{new Date().getTime()}")
         link(rel="stylesheet", type="text/css", href="/css/swiper.min.css")
     body
         //- <script src="./slid-es5.js"></script>
@@ -94,11 +94,75 @@ html
                 a(href="", class="about") 关于我们
                 span |
                 a(href="", class="question") 常见问题
-                button 立即购买
-        //- script(src="/js/swiper.min.js")
+                button#go-buy 立即购买
+        .contact
+            .contact-cont
+                p
+                    span 微信号：
+                    textarea#wchat(readonly="readonly") 687011233
+                    button#copy-txt 复制微信号
+                p 
+                    span 手机号：
+                    textarea(readonly="readonly") 13687011233
+                    <a href="tel:13687011233">立即拨打电话</a>
+                .line
+                .close-model#contact-close 取&nbsp;消
+        .mask
+        .confirm 复制成功
+        .fullguide-share
+            i.fullguide__arrow
+            .fullguide-share-inner
+                .fullguide-share__one 立即分享给好友吧
+                .fullguide-share__two 点击屏幕右上角将本页面分享给好友
+            .not-fount-share
+                p 没发现分享按钮？复制下面链接分享给好友
+                .share-line
+                    textarea(id="line-txt", readonly="readonly") www.guixitj.com
+                    button#line-btn 复制链接
         script.
             var banner = document.querySelector('.banner');
+            var contactEv = document.querySelector('.contact');
+            var mask = document.querySelector('.mask');
+            var fullguideShare = document.querySelector('.fullguide-share');
+            var goodShare = document.querySelector('.good-share');
+            var confirm = document.querySelector('.confirm');
             banner.style.height = 250 * banner.offsetWidth / 750 + 'px';
+            document.getElementById('contact-close').addEventListener('click', function(e) {
+                contactEv.style.bottom = '-200px';
+                mask.style.display = 'none';
+            });
+            document.getElementById('go-buy').addEventListener('click', function() {
+                contactEv.style.bottom = '0';
+                mask.style.display = 'block';
+            });
+            goodShare.addEventListener('click', function() {
+                fullguideShare.style.display = 'block';
+            });
+            fullguideShare.addEventListener('click', function() {
+                fullguideShare.style.display = 'none';
+            });
+            mask.addEventListener('click', function() {
+                contactEv.style.bottom = '-200px';
+                mask.style.display = 'none';
+            });
+            document.getElementById('copy-txt').addEventListener('click', function() {
+                getCopy('wchat');
+            });
+            document.getElementById('line-btn').addEventListener('click', function(ev) {
+                getCopy('line-txt');
+            });
+            function getCopy(id) {
+                var input = document.getElementById(id);
+                input.select(); // 选中文本
+                document.execCommand("Copy"); // 执行浏览器复制命令
+                confirm.style.top = '60px';
+                confirm.style.opacity = 1;
+                setTimeout(function () {
+                    confirm.style.top = '-35px';
+                    confirm.style.opacity = 0;
+                }, 2000)
+            }
+        //- script(src="/js/swiper.min.js")
         script(src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js")
         script.
             var mySwiper = new Swiper('.swiper-container-banner',{
@@ -112,10 +176,10 @@ html
                 on: {
                     slideChangeTransitionStart: function() {
                         document.querySelector('.tab-wrap').className = 'tab-wrap active' + this.realIndex;
-                    },
-                    slideChangeTransitionEnd: function () {
-                        //- document.querySelector('.tab-wrap').className = 'tab-wrap active' + this.realIndex;
-                    }
+                    }//,
+                    //- slideChangeTransitionEnd: function () {
+                    //-     document.querySelector('.tab-wrap').className = 'tab-wrap active' + this.realIndex;
+                    //- }
                 }
             })
             function switchTab(value) {

@@ -21,13 +21,27 @@ i{
 ul,li{
   list-style: none;
 }
+textarea{
+  background: #fff;
+  border: 0;
+  font-size: 14px;
+  color: #636262;
+  font-weight: 500;
+  resize:none;
+  font-family: Arial, Helvetica, sans-serif;
+  outline: none;
+  overflow: hidden;
+}
+button{
+  outline: none;
+}
 body{
   background: #f6f7f9;
   font-size: 14px;
   margin: 0 auto;
   background-size: 3000px;
   max-width: 640px;
-  padding-bottom: 40px;
+  padding-bottom: 46px;
   color: #323233;
 }
 body .swiper-slide, body .swiper-wrapper{
@@ -115,22 +129,26 @@ body .swiper-slide, body .swiper-wrapper{
   right: 0;
   top: 0;
   display: block;
-  padding: 4px 6px 4px 10px;
+  padding: 4px 6px 4px 28px;
   margin-left: 2px;
   font-size: 12px;
   color: #646566;
   line-height: normal;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
-  background: #f7f8fa url(../img/icon.png) no-repeat left center;
-  background-position: 0px -72px;
-  padding-left: 30px;
+  background: #f7f8fa url(../img/share.png) no-repeat 8px 6px;
+  background-size: 16px;
+}
+.m-base-info .goods-title span:active{
+  background-color: #f2f2f2;
 }
 .m-base-info .good-guarantee-bar{
   font-size: 12px;
   color: #646566;
-  background: url(../img/icon.png) no-repeat left center;
-  background-position: -38px -7px;
+  background: url(../img/zan.png) no-repeat left center;
+  /* background-position: -38px -7px; */
+  background-position: 1px 0px;
+  background-size: 80px;
   height: 20px;
   padding-left: 90px;
 }
@@ -251,7 +269,6 @@ body .swiper-slide, body .swiper-wrapper{
   margin-top: 6px;
 }
 .order{
-  margin-top: 10px;
   position: fixed;
   z-index: 10;
   bottom: 0;
@@ -264,8 +281,6 @@ body .swiper-slide, body .swiper-wrapper{
   margin: 0 auto;
   background: #fff;
   position: relative;
-  min-height: 40px;
-  line-height: 30px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.16);
 }
 .order .order-cont a{
@@ -273,38 +288,22 @@ body .swiper-slide, body .swiper-wrapper{
   display: inline-block;
   color: #7d7e80;
   text-align: center;
-  line-height: 40px;
+  line-height: 46px;
   position: relative;
-  /* margin-left: 20px; */
   padding-left: 20px;
 }
-/* .order .order-cont a::before{
-  content: '';
-  display: block;
-  width: 16px;
-  height: 16px;
-  background: url(../img/icon.png) no-repeat left center;
-  background-position: -4px -4px;
-  background-size: 200px;
-  position: absolute;
-  left: 0;
-  top: 12px;
-}
-.order .order-cont a.question::before{
-  background-position: -4px -28px;
-} */
 .order .order-cont span{
   font-size: 12px;
   position: absolute;
   left: 77px;
-  top: 4px;
+  top: 14px;
   color: #f95e5e;
 }
 .order button{
   display: block;
   position: absolute;
   right: 10px;
-  top: 5px;
+  top: 8px;
   height: 30px;
   line-height: 30px;
   width: 120px;
@@ -313,41 +312,154 @@ body .swiper-slide, body .swiper-wrapper{
   color: #fff;
   border-radius: 20px;
   border: 0;
-  outline: none;
 }
 .order button:active{
   background: rgb(192, 50, 50);
 }
-
-
-
-.lanmu{
-  background: #fff;
-  margin: 10px 0;
-  padding: 10px;
-}
-
-.footer{
+.contact{
   position: fixed;
-  bottom: 0;
+  bottom: -200px;
   left: 0;
-  height: 40px;
+  z-index: 50;
   width: 100%;
-  line-height: 40px;
+  transition: all 0.5s;
+}
+.contact .contact-cont{
+  padding-top: 30;
   background: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.31);
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  border-top: 1px solid #eee;
 }
-.footer ul li{
-  float: left;
+.contact .contact-cont .tit{
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+.contact .contact-cont h6{
+  font-size: 14px;
+}
+.line{
+  height: 5px;
+  background: #f6f7f9;
+}
+.contact .contact-cont .close-model{
+  height: 50px;
+  line-height: 50px;
   text-align: center;
-  width: 25%;
+  font-size: 16px;
 }
-.footer ul li a{
-  color: #656262;
+.contact .contact-cont .close-model:active{
+  color: #f44;
 }
-.footer ul li a:active{
-  color: #f07d7d;
+.contact .contact-cont p{
+  margin-bottom:20px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
 }
+.contact .contact-cont p span{
+  display: inline-block;
+  line-height: 28px;
+}
+.contact .contact-cont p button, .contact .contact-cont p a{
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #ff4444;
+  background: #fff;
+}
+.contact .contact-cont p button:active{
+  background: #F2F2F2;
+}
+.contact .contact-cont textarea{
+  height: 28px;
+  line-height: 28px;
+}
+.mask{
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  display: none;
+}
+.fullguide-share{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 11;
+  display: none;
+}
+.fullguide-share .fullguide__arrow{
+  background: url(../img/guide.png) no-repeat;
+  background-size: 66px 117px;
+  position: absolute;
+  top: 12px;
+  right: 33px;
+  width: 66px;
+  height: 117px;
+}
+.fullguide-share .fullguide-share-inner{
+  padding-top: 140px;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+}
+.fullguide-share .fullguide-share-inner .fullguide-share__one{
+  font-size: 20px;
+  font-weight: 500;
+}
+.fullguide-share .not-fount-share{
+  padding-top: 30px;
+  color: #f44;
+  text-align: center;
+}
+.fullguide-share .share-line{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.fullguide-share .share-line textarea{
+  width: 160px;
+  line-height: 30px;
+  text-align: center;
+  height: 30px;
+}
+.fullguide-share .share-line button{
+  height: 30px;
+  padding: 0 10px;
+  border: 0;
+}
+.fullguide-share .share-line button:active{
+  background: #ccc;
+}
+.confirm{
+  position: fixed;
+  top: -35px;
+  left: 50%;
+  width: 100px;
+  line-height: 30px;
+  border: 1px solid #8c4c4c;
+  font-size: 16px;
+  margin-left: -50px;
+  background-color: rgba(0,0,0,0.8);
+  text-align: center;
+  color: #fff;
+  transition: all 0.5s;
+  z-index: 10;
+  opacity: 0;
+}
+
 .page{
   max-width: 1000px;
   width: 100%;
