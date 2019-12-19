@@ -10,12 +10,15 @@
             margin: 0;
             padding: 0;
         }
+        html,body{
+            height: 100%;
+        }
         img{
             width: 100%;
         }
         .ditu-content{
-            width: 1060px;
-            height:398px;
+            width: 100%;
+            height:100%;
             border:#f1f1f1 solid 1px;
             margin: 0 auto;
         }
@@ -81,7 +84,7 @@
             }
             
             //标注点数组
-            var markerArr = [{title:"贵溪土鸡",content:"江西省、 鹰潭市、贵溪市、流口镇官庄村。<br/>贵溪散养土鸡养殖出厂地，电话：13687011233。欢迎前来购买",point:"117.25112|28.176348",isOpen:1,icon:{w:30,h:45,l:0,t:0,x:6,lb:5}}
+            var markerArr = [{title:"贵溪土鸡",content:"江西省、 鹰潭市、贵溪市、流口镇官庄村。<br/>贵溪散养土鸡养殖出厂地，电话：13687011233。欢迎前来购买",point:"117.25112|28.176348",isOpen:0,icon:{w:30,h:45,l:0,t:0,x:6,lb:5}}
                 ];
             //创建marker
             function addMarker(){
@@ -128,7 +131,7 @@
             //创建InfoWindow
             function createInfoWindow(i){
                 var json = markerArr[i];
-                var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+                var iw = new BMap.InfoWindow("<b class='iw_poi_title' style='width:80%' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
                 return iw;
             }
             //创建一个Icon

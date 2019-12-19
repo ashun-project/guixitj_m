@@ -19,7 +19,7 @@ function getClientIP(req) {
 var domain = {
     pc: 'http://www.guixitj.com',
     m: '',//'http://m.guixitj.com',
-    static: 'http://103.21.143.222:8888'
+    static: 'http://static.guixitj.com'
 }
 // 路由拦截
 router.all('*', function (req, res, next) {
@@ -42,7 +42,7 @@ router.get('/', function (req, res) {
             var listObj = {
                 trade: result || [],
                 domain: domain,
-                pageUrl: 'index'
+                pageUrl: '/'
             }
             res.render('index', listObj);
             conn.release();
@@ -58,6 +58,7 @@ router.get('/aboutus', function(req, res) {
         conn.query(sql, function (err, result) {
             var listObj = {
                 pageUrl: req.url,
+                domain: domain,
                 life: result || []
             }
             res.render('about_us', listObj);

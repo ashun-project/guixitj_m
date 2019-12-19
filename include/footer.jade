@@ -1,39 +1,77 @@
-.footer
-    .width-1100
-        ul
-            li
-                a(href="#{domain.pc}/", title="首页") 首页
-            li
-                a(href="#{domain.pc}/trade/", title="最近出售") 最近出售
-            li
-                a(href="#{domain.pc}/life/", title="农家生活") 农家生活
-            li
-                a(href="#{domain.pc}/news/", title="本站新闻") 本站新闻
-            li
-                a(href="#{domain.pc}/questions/", title="常见问题") 常见问题
-            li
-                a(href="#{domain.pc}/aboutus/", title="关于我们") 关于我们
-        div.superiority
-            p.tui 不是土鸡无偿退款
-            p.price 价格绝对实在
-            p.song 风雨无阻送货上门
-        div
-            p.num 订购：13687011233
-            .qr-code
-                div
-                    img(src="#{domain.static}/img/qr.png", alt="")
-                    span 扫一扫 手机访问
-                div
-                    img(src="#{domain.static}/img/qr.png", alt="")
-                    span 扫一扫 微信客服
-.float-w
-    div.call-ico
-        img(src="#{domain.static}/img/call.gif", alt="联系我们")
-    p 立即订购
-    div.cont
-        div
-            span 手机：13687011233
-            img(src="#{domain.static}/img/qr.png", alt="")
-            span 扫一扫添加微信
-.dibu
-    | 最终解释权归本站所有
+.order
+    .order-cont
+        a(href="#{domain.m + '/aboutus/'}", class="about") 关于我们
+        span |
+        a(href="#{domain.m + '/questions/'}", class="question") 常见问题
+        button#go-buy 立即购买
+.contact
+    .contact-cont
+        p
+            span 微信号：
+            textarea#wchat(readonly="readonly") 687011233
+            button#copy-txt 复制微信号
+        p 
+            span 手机号：
+            textarea(readonly="readonly") 13687011233
+            <a href="tel:13687011233">立即拨打电话</a>
+        .line
+        .close-model#contact-close 取&nbsp;消
+.mask
+.confirm 复制成功
+.fullguide-share
+    i.fullguide__arrow
+    .fullguide-share-inner
+        .fullguide-share__one 立即分享给好友吧
+        .fullguide-share__two 点击屏幕右上角将本页面分享给好友
+    .not-fount-share
+        p 没发现分享按钮？复制下面链接分享给好友
+        .share-line
+            textarea(id="line-txt", readonly="readonly") #{domain.m + pageUrl}
+            button#line-btn 复制链接
+script.
+    var banner = document.querySelector('.banner');
+    var contactEv = document.querySelector('.contact');
+    var mask = document.querySelector('.mask');
+    var fullguideShare = document.querySelector('.fullguide-share');
+    var goodShare = document.querySelector('.good-share');
+    var confirm = document.querySelector('.confirm');
+    if (banner) {
+        banner.style.height = 250 * banner.offsetWidth / 750 + 'px';
+    }
+    if (goodShare) {
+        goodShare.addEventListener('click', function() {
+            fullguideShare.style.display = 'block';
+        });
+    }
+    document.getElementById('contact-close').addEventListener('click', function(e) {
+        contactEv.style.bottom = '-200px';
+        mask.style.display = 'none';
+    });
+    document.getElementById('go-buy').addEventListener('click', function() {
+        contactEv.style.bottom = '0';
+        mask.style.display = 'block';
+    });
+    fullguideShare.addEventListener('click', function() {
+        fullguideShare.style.display = 'none';
+    });
+    mask.addEventListener('click', function() {
+        contactEv.style.bottom = '-200px';
+        mask.style.display = 'none';
+    });
+    document.getElementById('copy-txt').addEventListener('click', function() {
+        getCopy('wchat');
+    });
+    document.getElementById('line-btn').addEventListener('click', function(ev) {
+        getCopy('line-txt');
+    });
+    function getCopy(id) {
+        var input = document.getElementById(id);
+        input.select(); // 选中文本
+        document.execCommand("Copy"); // 执行浏览器复制命令
+        confirm.style.top = '60px';
+        confirm.style.opacity = 1;
+        setTimeout(function () {
+            confirm.style.top = '-35px';
+            confirm.style.opacity = 0;
+        }, 2000)
+    }
