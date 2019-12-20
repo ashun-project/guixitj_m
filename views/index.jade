@@ -70,14 +70,13 @@ html
                         ul.trade-list
                             each item in trade
                                 li
-                                    .diagram
-                                        a(href="#{domain.m + '/detail/' + item.id}")
-                                            img(src="#{domain.static + '/img/' + item.type + '/' + item.logo}", alt="#{item.title}")
-                                    .cont
-                                        p 
-                                            a(href="#{domain.m + '/detail/' + item.id}") #{item.title}
-                                        p.essay #{item.depict}
-                                        p.biaoshi #{item.create_time}
+                                    a(href="#{domain.m + '/detail/' + item.id}")
+                                        .diagram
+                                                img(src="#{domain.static + '/img/' + item.type + item.logo}", alt="#{item.title}")
+                                        .cont
+                                            p.trade-title #{item.title}
+                                            p.essay #{item.depict}
+                                            p.biaoshi #{item.create_time}
         include ../include/footer.jade
         //- script(src="/js/swiper.min.js")
         script(src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js")

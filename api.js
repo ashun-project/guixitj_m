@@ -75,6 +75,7 @@ router.get('/questions', function(req, res) {
         conn.query(sql, function (err, result) {
             var listObj = {
                 pageUrl: req.url,
+                domain: domain,
                 news: result || []
             }
             res.render('questions', listObj);
