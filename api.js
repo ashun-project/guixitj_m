@@ -95,13 +95,13 @@ function getNewsDataList(req, res, page) {
     var host = 'http://'+req.headers['host'];
     var limit = Number(page);
     var limitBefore = ((limit - 1) * 12);
-    var sql = 'select a.* from (select * from data_list where type = "news" order by id desc limit '+ limitBefore + ',' + 12 +') a union all select b.* from (select * from data_list where type = "life" order by id desc limit 4) b';
+    var sql = 'SELECT * FROM data_list where type = "news" order by id desc limit '+ limitBefore + ',' + 12;
     var count = 'SELECT COUNT(1) FROM data_list where type = "news"';
     var listObj = {
         pageTxt: limit > 1 ? '【第' + limit + '页】' : '',
         pageUrl: req.url,
-        news: [],
-        life: []
+        domain: domain,
+        news: []
     };
     if (!limit) {
         get404(req, res);
@@ -116,10 +116,7 @@ function getNewsDataList(req, res, page) {
             } else {
                 conn.query(count, function (errC, total) {
                     var resultTotal = Number(total[0]['COUNT(1)']) || 0;
-                    var resultList = result || [];
-                    for (var i = 0; i < resultList.length; i++) {
-                        listObj[resultList[i].type].push(resultList[i]);
-                    }
+                    listObj.news = result || [];
                     listObj.page = resultTotal ? pageModule(resultTotal, limit, host + '/news') : '';
                     res.render('news', listObj);
                     conn.release();
@@ -129,7 +126,7 @@ function getNewsDataList(req, res, page) {
     })
 }
 
-// 最近出售
+// 成交记录
 router.get('/trade', function (req, res) {
     getTradeDataList(req, res, 'trade', '1');
 });
@@ -139,13 +136,13 @@ router.get('/trade/:page', function (req, res) {
 function getTradeDataList(req, res, type, page) {
     var limit = Number(page);
     var limitBefore = ((limit - 1) * 12);
-    var sql = 'select a.* from (select * from data_list where type = "'+ type +'" order by id desc limit '+ limitBefore + ',' + 12 +') a union all select b.* from (select * from data_list where type = "news" order by id desc limit 8) b';
+    var sql = 'SELECT * FROM data_list where type = "'+ type +'" order by id desc limit '+ limitBefore + ',' + 12;
     var count = 'SELECT COUNT(1) FROM data_list where type = "'+ type +'"';
     var listObj = {
         domain: domain,
         pageTxt: limit > 1 ? '【第' + limit + '页】' : '',
         pageUrl: req.url,
-        news: []
+        trade: []
     };
     listObj[type] = [];
     if (!limit) {
@@ -161,10 +158,7 @@ function getTradeDataList(req, res, type, page) {
             } else {
                 conn.query(count, function (errC, total) {
                     var resultTotal = Number(total[0]['COUNT(1)']) || 0;
-                    var resultList = result || [];
-                    for (var i = 0; i < resultList.length; i++) {
-                        listObj[resultList[i].type].push(resultList[i]);
-                    }
+                    listObj.trade = result || [];
                     listObj.page = resultTotal ? pageModule(resultTotal, limit, domain.pc + '/' + type) : '';
                     res.render(type, listObj);
                     conn.release();
@@ -218,12 +212,10 @@ function getLifeDataList(req, res, page) {
 // 文章详情
 router.get('/detail/:id', function(req, res) {
     var listObj = {
-        // pageTitle: obj.title + ' - 贵溪土鸡',
-        // pageDescrition: obj.title + ' - 贵溪土鸡每日分享农家生活，近日出售，站内新闻相关文章',
         pageUrl: req.url,
         domain: domain,
         objData: {title: '没有找到数据', content: '数据出错'},
-        typeTxt: {trade: '最近出售', news: '站内新闻', life: '农家生活'},
+        typeTxt: {trade: '成交记录', news: '站内新闻', life: '农家生活'},
         newsList: []
     }
     var sql = 'SELECT * FROM data_detail where id = "' + req.params.id +'"';

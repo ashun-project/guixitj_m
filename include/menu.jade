@@ -1,11 +1,11 @@
 .menu
     ul
         
-        li
-            a(href="") 新闻
-        li
-            a(href="") 购买
-        li
-            a(href="") 生活
-        li.active
-            a(href="") 首页
+        li(class="#{pageUrl.indexOf('/news') > -1 ? 'active' : ''}")
+            a(href="#{domain.m + '/news/'}") 新闻
+        li(class="#{pageUrl.indexOf('/trade') > -1 ? 'active' : ''}")
+            a(href="#{domain.m + '/trade/'}") 购买
+        li(class="#{pageUrl.indexOf('/life') > -1 ? 'active' : ''}")
+            a(href="#{domain.m + '/life/'}") 生活
+        li(class="#{pageUrl === '/' ? 'active' : ''}")
+            a(href="/") 首页

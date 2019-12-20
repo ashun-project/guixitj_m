@@ -92,10 +92,6 @@ body .swiper-slide, body .swiper-wrapper{
 .banner .swiper-container{
   overflow: hidden;
 }
-/* .module-unit{
-  background: #fff;
-  margin-bottom: 10px;
-} */
 .menu ul{
   height: 40px;
   line-height: 39px;
@@ -225,7 +221,7 @@ body .swiper-slide, body .swiper-wrapper{
 .tab-wrap .goods-detail .promise{
   line-height: 20px;
 }
-.tab-wrap .trade-list {
+.trade-list {
   padding: 16px 10px 10px;
 }
 .trade-list li{
@@ -481,24 +477,26 @@ body .swiper-slide, body .swiper-wrapper{
 .page{
   max-width: 1000px;
   width: 100%;
-  margin: 30px auto 0;
+  margin: 20px auto 0;
   text-align: center;
-  padding: 10px 0;
+  padding: 10px;
+  font-size: 12px;
 }
 .page span, .page a{
   display: inline-block;
-  padding: 3px 10px;
+  padding: 0 10px;
   margin: 2px;
   border: 1px solid #eee;
   background: #fff;
   box-shadow: 0 0 10px rgba(51, 51, 51, 0.09019);
   border-radius: 2px;
+  line-height: 24px;
 }
 .page span {
   color: #828181;
 }
 .page a.active{
-  background: #d18654;
+  background: #f38e8e;
   color: #fff;
 }
 .page span.current-page{
@@ -506,7 +504,6 @@ body .swiper-slide, body .swiper-wrapper{
   background: none;
   color: #666;
   box-shadow: none;
-  font-size: 14px;
 }
 .page a{
   color: #000;
@@ -582,6 +579,43 @@ body .swiper-slide, body .swiper-wrapper{
 }
 .question-list .an i{
   color: #4da032;
+}
+/* 新闻 */
+.news-list{
+  padding: 10px;
+}
+.news-list li a{
+  display: block;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.news-list li a .news-tit{
+  font-size: 16px;
+  color: rgb(58, 58, 58);
+  display: block;
+  max-width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 30px;
+}
+.news-list li span{
+  color: #696969;
+  font-size: 12px;
+}
+.news-list li i{
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url();
+  background: url(../img/next.png) no-repeat center;
+  background-size: 20px;
+  margin-top: -10px;
 }
 
 /* 分享 */

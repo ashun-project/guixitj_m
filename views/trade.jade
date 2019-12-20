@@ -2,46 +2,35 @@ doctype html 5
 html
     head
         meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
-        title 最近土鸡出售#{pageTxt} - 贵溪土鸡
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+        title 土鸡成交记录#{pageTxt} - 贵溪土鸡
         meta(name="keywords", content="出售贵溪土鸡,出售贵溪土鸡蛋")
         meta(name="description", content="出售正宗农村散养土鸡，贵溪土鸡蛋保证品质，保证营养，保证绿色欢迎前来购买。")
         link(rel="canonical", href="#{domain.pc + pageUrl}")
-        //- link(rel="alternate", media="only screen and(max-width: 640px)", href="#{domain.m + pageUrl}")
-        //- meta(name="mobile-agent", content="format=html5;url=#{domain.m + pageUrl}")
-        meta(name="applicable-device", content="pc")
+        meta(name="applicable-device", content="mobile")
         meta(http-equiv="Cache-Control", content="no-transform")
         meta(http-equiv="Cache-Control", content="no-siteapp")
-        meta(name="renderer", content="webkit")
-        link(rel="stylesheet", type="text/css", href="#{domain.static}/css/style.css?#{new Date().getTime()}")
-        link(rel="shortcut icon", href="#{domain.static}/img/favicon.ico", type="image/x-icon")
+        meta(name="MobileOptimized", content="width")
+        meta(name="HandheldFriendly", content="true")
+        meta(name="apple-mobile-web-app-capable", content="yes")
+        meta(name="apple-mobile-web-app-status-bar-style", content="black")
+        meta(name="apple-mobile-web-app-title", content="贵溪土鸡")
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", type="text/css", href="/css/style_m.css?#{new Date().getTime()}")
     body
-        include ../include/header.jade
-        p.curr-positon.width-1100
-            span 当前位置：
-            a(href="#{domain.pc}/") 首页
-            span &nbsp;&gt;&nbsp;最近出售
-        div.trade-cont.width-1100
-            div.cont-lf
-                div.column-title
-                    span 本站新闻
-                    a(href="#{domain.pc}/news/") 更多&gt;
-                ul
-                    each item, idx in news
-                        li
-                            i #{idx+1}
-                            a(href="#{domain.pc + '/detail/' + item.id}", target="_blank") #{item.title}
-            div.cont-rf
-                p.trade-title 历史出售列表
-                ul
-                    each item in trade
-                        li
+        .top-title
+            h1 土鸡成交记录
+        include ../include/menu.jade
+        div.trade-list
+            ul
+                each item in trade
+                    li
+                        a(href="#{domain.m + '/detail/' + item.id}")
                             .diagram
-                                a(href="#{domain.pc + '/detail/' + item.id}" target="_blank")
-                                    img(src="#{domain.static + '/img/' + item.type + '/' + item.logo}", alt="#{item.title}")
+                                    img(src="#{domain.static + '/img/' + item.type + item.logo}", alt="#{item.title}")
                             .cont
-                                p 
-                                    a(href="#{domain.pc + '/detail/' + item.id}", target="_blank") #{item.title}
-                                p.biaoshi 出售：#{item.amount}&nbsp;(只)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日期：#{item.create_time}
+                                p.trade-title #{item.title}
                                 p.essay #{item.depict}
-                .page !{page}
+                                p.biaoshi #{item.create_time}
+            .page !{page}
         include ../include/footer.jade
