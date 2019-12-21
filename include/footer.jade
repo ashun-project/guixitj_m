@@ -7,11 +7,11 @@
 .contact
     .contact-cont
         p
-            span 微信号：
+            span 微信联系：
             textarea#wchat(readonly="readonly") 687011233
             button#copy-txt 复制微信号
         p 
-            span 手机号：
+            span.phone 手机联系：
             textarea(readonly="readonly") 13687011233
             <a href="tel:13687011233">立即拨打电话</a>
         .line
@@ -44,7 +44,7 @@ script.
         });
     }
     document.getElementById('contact-close').addEventListener('click', function(e) {
-        contactEv.style.bottom = '-200px';
+        contactEv.style.bottom = '-250px';
         mask.style.display = 'none';
     });
     document.getElementById('go-buy').addEventListener('click', function() {
@@ -55,7 +55,7 @@ script.
         fullguideShare.style.display = 'none';
     });
     mask.addEventListener('click', function() {
-        contactEv.style.bottom = '-200px';
+        contactEv.style.bottom = '-250px';
         mask.style.display = 'none';
     });
     document.getElementById('copy-txt').addEventListener('click', function() {

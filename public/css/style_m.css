@@ -60,7 +60,7 @@ button{
   background-color: #f2f2f2;
 }
 body{
-  /* background: #f6f7f9; */
+  background: #fff;
   font-size: 14px;
   margin: 0 auto;
   background-size: 3000px;
@@ -333,7 +333,7 @@ body .swiper-slide, body .swiper-wrapper{
 }
 .contact{
   position: fixed;
-  bottom: -200px;
+  bottom: -250px;
   left: 0;
   z-index: 50;
   width: 100%;
@@ -373,11 +373,21 @@ body .swiper-slide, body .swiper-wrapper{
   margin-bottom:20px;
   padding: 0 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .contact .contact-cont p span{
-  display: inline-block;
+  display: block;
   line-height: 28px;
+  width: 100%;
+  font-size: 14px;
+  padding-left: 25px;
+  background: url(../img/wchat.png) no-repeat left center;
+  background-size: 22px;
+}
+.contact .contact-cont p span.phone{
+  background: url(../img/phone.png) no-repeat left center;
+  background-size: 22px;
 }
 .contact .contact-cont p button, .contact .contact-cont p a{
   display: inline-block;
@@ -394,6 +404,8 @@ body .swiper-slide, body .swiper-wrapper{
 .contact .contact-cont textarea{
   height: 28px;
   line-height: 28px;
+  max-width: 40%;
+  /* padding-left: 25px; */
 }
 .mask{
   background: rgba(0, 0, 0, 0.7);
@@ -612,12 +624,118 @@ body .swiper-slide, body .swiper-wrapper{
   display: block;
   width: 20px;
   height: 20px;
-  background: url();
   background: url(../img/next.png) no-repeat center;
   background-size: 20px;
   margin-top: -10px;
 }
-
+/* 农家生活 */
+.life-list ul{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 2%;
+}
+.life-list ul li{
+  width: 49%;
+  padding: 10px;
+  background: #fff;
+  margin-bottom: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+.life-list ul li div{
+  width: 100%;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+.life-list ul li img{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.life-list ul li .lift-tit a{
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #444;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.life-list ul li span{
+  color: #999;
+  font-size: 12px;
+  display: block;
+  line-height: 20px;
+}
+/* 详情页 */
+.detail-tit{
+  position: relative;
+}
+.detail-tit h1{
+  width: 80%;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.detail-tit a{
+  width: 40px;
+  height: 40px;
+  display: block;
+  background: url(../img/back.png) no-repeat center;
+  background-size: 22px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.curr-positon{
+  line-height: 40px;
+  padding: 0 10px;
+  background: #f6f7f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.detail {
+  padding: 10px;
+}
+.detail .jianjie{
+  color: #504d4d;
+  line-height: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  position: relative;
+}
+.detail .jianjie .lei{
+  color: #696363;
+}
+.detail .jianjie .good-share{
+  top: 25px;
+  right: -10px;
+  -webkit-transform:translate3d(0,0,0);
+  -moz-transform:translate3d(0,0,0);
+  transform:translate3d(0,0,0);
+  -webkit-animation:play 3s linear infinite;
+  -moz-animation:play 3s linear infinite;
+  animation:play 3s linear infinite;
+}
+.detail .cont{
+  line-height: 25px;
+  font-size: 14px;
+  color: #636262;
+  text-indent: 28px;
+  margin-top: 10px;
+}
+.detail .cont img{
+  width: auto;
+  max-width: 100% !important;
+  margin: 5px auto;
+  display: block;
+}
 /* 分享 */
 .share-warp.good-share{
   float: right;

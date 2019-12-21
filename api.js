@@ -18,7 +18,7 @@ function getClientIP(req) {
 };
 var domain = {
     pc: 'http://www.guixitj.com',
-    m: '',//'http://m.guixitj.com',
+    m: 'http://m.guixitj.com',//http://m.guixitj.com,
     static: 'http://static.guixitj.com'
 }
 // 路由拦截
@@ -215,25 +215,19 @@ router.get('/detail/:id', function(req, res) {
         pageUrl: req.url,
         domain: domain,
         objData: {title: '没有找到数据', content: '数据出错'},
-        typeTxt: {trade: '成交记录', news: '站内新闻', life: '农家生活'},
-        newsList: []
+        typeTxt: {trade: '成交记录', news: '站内新闻', life: '农家生活'}
     }
     var sql = 'SELECT * FROM data_detail where id = "' + req.params.id +'"';
-    var tuijian = 'SELECT * FROM data_list where type = "news" order by id desc limit 10';
     pool.getConnection(function (err, conn) {
         if (err) console.log("POOL /==> " + err);
         conn.query(sql, function (err, result) {
             if (err) {
                 res.render('detail', listObj);
-                conn.release();
             } else {
-                conn.query(tuijian, function (err, resultList) {
-                    listObj.objData = result[0] || {};
-                    listObj.newsList = resultList || [];
-                    res.render('detail', listObj);
-                    conn.release();
-                })
+                listObj.objData = result[0] || {};
+                res.render('detail', listObj);
             }
+            conn.release();
         })
     })
 })
