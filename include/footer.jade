@@ -26,7 +26,7 @@
     .not-fount-share
         p 没发现分享按钮？复制下面链接分享给好友
         .share-line
-            textarea(id="line-txt", readonly="readonly") #{domain.m + pageUrl}
+            div(id="line-txt", readonly="readonly") #{domain.m + pageUrl}
             button#line-btn 复制链接
 script.
     var banner = document.querySelector('.banner');
@@ -72,24 +72,31 @@ script.
     
     //- 复制功能
     document.getElementById('copy-txt').addEventListener('click', function() {
-        getCopy('wchat');
+        var txt = document.getElementById('wchat').innerHTML
+        getCopy(txt);
     });
     document.getElementById('line-btn').addEventListener('click', function(ev) {
-        getCopy('line-txt');
+        getCopy(document.location.href);
     });
-    function getCopy(id) {
-        //- var input = document.getElementById(id);
-        //- input.select(); // 选中文本
-        //- document.execCommand("Copy"); // 执行浏览器复制命令
-        const range = document.createRange(); 
-        const selection = window.getSelection(); 
-        range.selectNode(document.getElementById(id)); 
-        if(selection.rangeCount > 0) {
-            selection.removeAllRanges();
-        } 
-        selection.addRange(range); 
-        document.execCommand('copy'); 
-
+    function getCopy(val) {
+        var input = document.createElement('input')
+        input.value = val
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) { //ios
+            var range = document.createRange()
+            box.appendChild(input)
+            range.selectNode(input)
+            window.getSelection().addRange(range)
+            var successful = document.execCommand('copy')
+            if (!successful) {
+                alert('您的浏览器不支持复制点击复制。请手动复制~')
+            }
+            window.getSelection().removeAllRanges()
+        } else {
+            document.getElementsByTagName('body')[0].appendChild(input)
+            input.select()
+            document.execCommand('copy')
+        }
+        input.parentNode.removeChild(input);
         confirm.style.top = '60px';
         confirm.style.opacity = 1;
         setTimeout(function () {

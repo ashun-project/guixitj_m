@@ -451,6 +451,7 @@ body .swiper-slide, body .swiper-wrapper{
   color: #f44;
   text-align: center;
 }
+
 .fullguide-share .share-line{
   display: flex;
   justify-content: center;
@@ -458,13 +459,15 @@ body .swiper-slide, body .swiper-wrapper{
   position: relative;
   z-index: 30;
 }
-.fullguide-share .share-line textarea{
+.fullguide-share .not-fount-share .share-line #line-txt{
+  display: inline-block;
   width: 160px;
   line-height: 30px;
   text-align: center;
   height: 30px;
   padding: 0 5px;
   border-radius: none;
+  background: #fff;
 }
 .fullguide-share .share-line button{
   height: 30px;
