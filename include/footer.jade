@@ -81,9 +81,9 @@ script.
     function getCopy(val) {
         var input = document.createElement('input')
         input.value = val
+        document.getElementsByTagName('body')[0].appendChild(input)
         if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) { //ios
             var range = document.createRange()
-            box.appendChild(input)
             range.selectNode(input)
             window.getSelection().addRange(range)
             var successful = document.execCommand('copy')
@@ -92,7 +92,6 @@ script.
             }
             window.getSelection().removeAllRanges()
         } else {
-            document.getElementsByTagName('body')[0].appendChild(input)
             input.select()
             document.execCommand('copy')
         }
