@@ -3,7 +3,7 @@ var router = express.Router();
 var mysql = require('mysql');
 var pageModule = require('./page');
 var pool = mysql.createPool({
-    connectionLimit: 100,
+    // connectionLimit: 100,
     host: 'localhost',
     user: 'root',
     password: 'ashun666',
@@ -23,6 +23,7 @@ var domain = {
 }
 // 路由拦截
 router.all('*', function (req, res, next) {
+    console.log(req.url, '==========')
     if (req.url.indexOf('.php') > -1) {
         return get404(req, res)
     }
