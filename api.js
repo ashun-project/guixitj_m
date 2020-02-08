@@ -28,7 +28,7 @@ router.all('*', function (req, res, next) {
         return get404(req, res)
     }
     if (req.method.toLowerCase() == 'options') {
-        res.send(200);  //让options尝试请求快速结束
+        res.send('');  //让options尝试请求快速结束
     } else {
         next();
     }
