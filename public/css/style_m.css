@@ -298,7 +298,7 @@ body .swiper-slide, body .swiper-wrapper{
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.16);
 }
 .order .order-cont a{
-  font-size: 12px;
+  font-size: 14px;
   display: inline-block;
   color: #7d7e80;
   text-align: center;
@@ -310,8 +310,8 @@ body .swiper-slide, body .swiper-wrapper{
 .order .order-cont span{
   font-size: 12px;
   position: absolute;
-  left: 77px;
-  top: 15px;
+  left: 85px;
+  top: 14px;
   color: #f95e5e;
 }
 .order button{
@@ -680,6 +680,11 @@ body .swiper-slide, body .swiper-wrapper{
   line-height: 20px;
 }
 /* 详情页 */
+.goumai{
+  padding: 10px;
+  border-bottom: 1px solid #fccdcd;
+  color: #f44;
+}
 .detail-tit{
   position: relative;
 }
@@ -707,6 +712,9 @@ body .swiper-slide, body .swiper-wrapper{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.curr-positon a{
+  color: #333;
 }
 .detail {
   padding: 10px;

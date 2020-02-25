@@ -10,12 +10,16 @@ html
         include ../include/tongji.jade
     body
         .top-title.detail-tit
-            a(href="javascript:history.back(-1)")
+            //- a(href="javascript:history.back(-1)")
+            a(onclick="goBack()")
             h1 #{objData.title}
         p.curr-positon
             span 当前位置：
-            a(href="#{domain.m + '/' +  objData.type + '/'}") #{typeTxt[objData.type]}
+            a(href="/") 首页
+            a(href="#{domain.m + '/' +  objData.type + '/'}") &nbsp;&gt;&nbsp;#{typeTxt[objData.type]}
             span &nbsp;&gt;&nbsp;#{objData.title}
+        .goumai
+            | 常年出售农村散养土鸡。电话：13687011233&nbsp;&darr;
         .detail
             .jianjie
                 p
@@ -30,3 +34,12 @@ html
                 span.good-share 分享
             .cont !{objData.content}
         include ../include/footer.jade
+        script.
+            function goBack() {
+                var ref = document.referrer;
+                if (ref && ref.indexOf('guixitj') > -1) {
+                    window.history.back(-1);
+                } else {
+                    window.location.href = '/'
+                }
+            }
